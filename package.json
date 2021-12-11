@@ -1,0 +1,29 @@
+{
+  "name": "restaurant_page",
+  "version": "1.0.0",
+  "description": "this is a basic restaurant web page usint webpack",
+  "private":true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/refactory128/Restaurant_page.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Jonathan S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/refactory128/Restaurant_page/issues"
+  },
+  "homepage": "https://github.com/refactory128/Restaurant_page#readme",
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
