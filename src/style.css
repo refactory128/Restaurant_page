@@ -1,12 +1,79 @@
+div {
+    border: 0px solid red;
+}
+
+body{
+    margin:0px;
+    background-color: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
 .nav {
     display: flex;
+    align-items: center;
     list-style: none;
     background-color: #f1f1f1;
 }
 
 .nav li{
     font-size: larger;
+
+    font-weight: 600;
+    color: #303030;
     margin: 25px;
+    padding: 10px;
+    border: 1px solid #303030;
+    border-radius: 10%;
+    width: 100px;
+    text-align: center;
 
 }
 
+
+
+.welcomePage {
+
+    height: 80vh;
+    background-image: url('./img/Welcome.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    align-items: stretch;
+
+}
+
+.welcomePage>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.rightDiv{
+    background: linear-gradient(90deg, rgba(252,252,252,0) 0%, rgba(0,0,0,0.5) 19%);
+    text-shadow: 1px 1px #000000;
+}
+
+.rightDiv>h1{
+    color: #f5c95e ;
+    font-size: 72px;
+    opacity: 1;
+    margin: 0px;
+
+
+}
+
+.rightDiv>p{
+    color: #f5c95e ;
+    font-size: 30px;
+    opacity: 1;
+    text-align: center;
+    margin: 0px;
+
+
+}

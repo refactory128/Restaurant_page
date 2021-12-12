@@ -16,11 +16,11 @@ function navBar(){
     nav.appendChild(ul);
 
     const welcomeTab = document.createElement("li");
-    welcomeTab.innerHTML = "Welcome";
+    welcomeTab.innerHTML = "WELCOME";
     nav.appendChild(welcomeTab);
 
     const menuTab = document.createElement("li");
-    menuTab.innerHTML = "Menu";
+    menuTab.innerHTML = "MENU";
     nav.appendChild(menuTab);
 
 
@@ -28,13 +28,26 @@ function navBar(){
 }
 
 function welcomePage(){
+    
     const page = document.createElement("div");
-    page.classList.add('page');
+    page.classList.add('welcomePage');
 
-    const backgroundImage = new Image();
-    backgroundImage.src = backgroundImageSrc;
-    page.appendChild(backgroundImage);
-  
+    const leftDiv = document.createElement("div");
+    leftDiv.classList.add('leftDiv');
+    page.appendChild(leftDiv);
+
+    const rightDiv = document.createElement("div");
+    rightDiv.classList.add('rightDiv');
+    page.appendChild(rightDiv);
+
+    const h1 = document.createElement("h1");
+    h1.innerHTML = "WELCOME"
+    rightDiv.appendChild(h1);
+
+    const p = document.createElement("p");
+    p.innerHTML = "Great Food, Good Times"
+    rightDiv.appendChild(p);
+
     return page;
 }
 
