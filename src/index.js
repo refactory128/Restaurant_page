@@ -7,9 +7,8 @@ import imgSrc2 from './img/Sushi.jpeg';
 import imgSrc3 from './img/Spaghetti.jpeg';
 
 
-console.log("Hello Webpack");
 
-function navBar(){
+function navBar(currentPage){
     const nav = document.createElement("div");
     nav.classList.add('nav');
 
@@ -22,12 +21,27 @@ function navBar(){
 
     const welcomeTab = document.createElement("li");
     welcomeTab.innerHTML = "WELCOME";
+    if(currentPage === "Welcome"){
+        welcomeTab.classList.add('currentPageNavHighlight');
+    }
     nav.appendChild(welcomeTab);
+
+    welcomeTab.addEventListener("click", e =>{
+        console.log("clicked" + e.target);
+        reloadPage("Welcome");
+    });
 
     const menuTab = document.createElement("li");
     menuTab.innerHTML = "MENU";
+    if(currentPage === "Menu"){
+        menuTab.classList.add('currentPageNavHighlight');
+    }
     nav.appendChild(menuTab);
 
+    menuTab.addEventListener("click", e =>{
+        console.log("clicked" + e.target);
+        reloadPage("Menu");
+    });
 
     return nav;
 }
@@ -65,23 +79,46 @@ function addMenuItem(pictureSrc, title, description){
     picture.src = pictureSrc;
     item.appendChild(picture);
 
+    const itemInfo = document.createElement("div");
+    item.appendChild(itemInfo);
+
     const h1 = document.createElement("h1");
     h1.innerHTML = title;
-    item.appendChild(h1);
+    itemInfo.appendChild(h1);
 
     const p = document.createElement("p");
     p.innerHTML = description;
-    item.appendChild(p);
+    itemInfo.appendChild(p);
 
     return item;
 }
 
+function reloadPage(page){
 
-const content = document.querySelector("#content");
+    const content = document.querySelector("#content");
+    while (content.hasChildNodes()){
+        content.removeChild(content.lastChild);
+    }
 
-content.appendChild(navBar());
-content.appendChild(addMenuItem(imgSrc1, "Egg Burger", "this scrumptions egg burger comes with fries"));
-content.appendChild(addMenuItem(imgSrc2, "Sushi", "this scrumptions Sushi comes with soysauce"));
-content.appendChild(addMenuItem(imgSrc3, "Spaghetti", "this scrumptions pasta comes with sauce"));
+    //content = document.querySelector("#content");
+    content.appendChild(navBar(page));
 
-//content.appendChild(welcomePage());
+
+    if (page ==="Welcome"){
+        content.appendChild(welcomePage());
+
+    }
+    else if(page === "Menu"){
+        const menu = document.createElement("div");
+        content.appendChild(menu);
+        menu.classList.add('menu');
+
+        menu.appendChild(addMenuItem(imgSrc1, "Egg Burger", "this scrumptions egg burger comes with fries"));
+        menu.appendChild(addMenuItem(imgSrc2, "Sushi", "this scrumptions Sushi comes with soysauce"));
+        menu.appendChild(addMenuItem(imgSrc3, "Spaghetti", "this scrumptions pasta comes with sauce"));
+
+    }
+}
+
+
+reloadPage("Welcome");
